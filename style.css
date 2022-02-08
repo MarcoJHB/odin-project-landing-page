@@ -4,20 +4,20 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 html {
   font-size: 62.5%;
-  --header1: calc(3.5rem + 1vw);
+  --header1: calc(1.5rem + 1vw);
   --header2: calc(24px);
   --header3: calc(20px);
   --header4: calc(2rem + 1vw);
   --text: calc(16px);
   --big: calc(6rem + 1vw);
-  --special-color: #c7013f;
+  --red-text: #c7013f;
   --background-color: #414141;
   --gray-text: #525252;
   --yellow-text: #e5c962;
@@ -33,9 +33,16 @@ h1 {
 }
 h2 {
   font-size: var(--header2);
+  font-size: 36px;
+    font-weight: 300;
+    letter-spacing: 0.25px;
+    line-height: 1.25;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 h3 {
   font-size: var(--header3);
+  color: var(--red-text);
 }
 h4 {
   font-size: var(--header4);
@@ -48,8 +55,9 @@ input,
 a,
 p {
   font-size: var(--text);
-  font-weight: 400;
+
   line-height: 24px;
+  text-shadow: 2px 2px #1f1f1f;
 }
 
 ul {
@@ -59,6 +67,7 @@ ul {
 a {
   color: #fff;
   text-decoration: none;
+  font-weight: 600;
 }
 
 .yellow-text{
@@ -76,7 +85,23 @@ a {
   align-items: center;
 }
 
+.corners {
+  background:
+    linear-gradient(to right, white 4px, transparent 4px) 0 0,
+    linear-gradient(to right, white 4px, transparent 4px) 0 100%,
+    linear-gradient(to left, white 4px, transparent 4px) 100% 0,
+    linear-gradient(to left, white 4px, transparent 4px) 100% 100%,
+    linear-gradient(to bottom, white 4px, transparent 4px) 0 0,
+    linear-gradient(to bottom, white 4px, transparent 4px) 100% 0,
+    linear-gradient(to top, white 4px, transparent 4px) 0 100%,
+    linear-gradient(to top, white 4px, transparent 4px) 100% 100%;
+
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+}
+
 body {
+  
   font-family: "Rubik", helvetica, arial, sans-serif;
   background-image: url(./images/railgunner-background.png);
   background-repeat: no-repeat;
@@ -90,7 +115,7 @@ body {
 
 .main-head {
   z-index: 2;
-  position: relative;
+  position: sticky;
   background: rgba(1, 1, 1, 0.7);
 }
 
@@ -113,6 +138,14 @@ nav {
   flex: 1 1 20rem;
   
 }
+
+.nav-links a{
+  background-color: #c7013f;
+  padding: 1rem 4rem;
+  font-weight: 600;
+}
+
+/* Hero section  */
 
 .hero {
   min-height: 90vh;
@@ -137,6 +170,7 @@ nav {
 
 .hero-introduction h2 {
   padding-top: 3rem;
+  font-size: var(--big);
 }
 
 .hero-introduction a {
@@ -194,9 +228,10 @@ nav {
   width: 80%;
   text-align: center;
   gap:4rem;
-  padding: 2rem;
-  background-color: rgba(1, 1, 1, 0.9);
+  padding: 4rem;
+  background-color: rgba(1, 1, 1, 0.7);
   color: #fff;
+  border: 2px solid rgb(100, 100, 100);
 }
 
 .about h2{
@@ -205,13 +240,15 @@ nav {
 
 .skills-container{
   display: flex;
+  flex-wrap: wrap;
   text-align: center;
   gap:4rem;
 }
 
 .card{
-  flex: 1 1 100%;
-  background-color: #10030a;
+  flex: 1 1 0;
+  padding: 2rem;
+  background-color: #10030a63;
   color: #fff;
 }
 
@@ -234,15 +271,83 @@ nav {
   text-align: center;
   gap:4rem;
   padding: 15rem;
-  background-color: rgba(1, 1, 1, 0.9);
+  background-color: rgba(1, 1, 1, 0.7);
   color: #fff;
+  border: 2px solid rgb(100, 100, 100);
 }
 
 blockquote p {
   font-size: 3rem;
   line-height: 4rem;
+  text-align: left;
+  font-style: italic;
 }
 
 figcaption {
   font-size: var(--text);
+  text-align: right;
+}
+
+/* Call to action section  */
+
+.call-to-action {
+  min-height: 500px;
+  /* background-color: #414141; */
+
+}
+
+.call-to-action .container{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  text-align: center;
+  gap:4rem;
+  padding: 10rem;
+  background-color: #1d5c88;
+  color: #fff;
+  border: 2px solid lightblue;
+}
+
+.cta-block {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cta-text{
+  text-align: left;
+}
+
+.cta-text h3{
+  color: #fff;
+  padding-bottom: 2rem;
+}
+
+.cta-button a {
+  position: relative;
+  padding: 2rem 4rem;
+  box-shadow:
+        inset 0 0 2px 0 rgba(255,255,255,.4),
+        inset 0 0 3px 0 rgba(0,0,0,.4),
+        inset 0 0 3px 5px rgba(0,0,0,.05),
+        2px 2px 4px 0 rgba(0,0,0,.25);
+        border-radius: 4px;
+  background: #3b9921;
+  color: #fff;
+  clip-path: polygon(
+    10% 0,
+    90% 0,
+    100% 20%,
+    100% 80%,
+    90% 100%,
+    0 100%,
+    0% 20%
+  );
+}
+
+/* footer section  */
+
+footer {
+  margin: 0;
+  padding: 3rem;
+  background-color: #10030a;
 }
